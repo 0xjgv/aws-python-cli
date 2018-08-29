@@ -14,4 +14,4 @@ RUN apk add --no-cache python3 && \
   if [[ ! -e /usr/bin/python ]]; then ln -sf /usr/bin/python3 /usr/bin/python; fi && \
   rm -r /root/.cache
 
-CMD "aws s3 rm s3://$AWS_BUCKET_NAME/ --recursive --exclude '*/*.csv.zip'"
+CMD ["sh", "-c", "aws s3 rm s3://$AWS_BUCKET_NAME/ --recursive --exclude '*/*.csv.zip'"]
